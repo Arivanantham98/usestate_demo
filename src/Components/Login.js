@@ -5,7 +5,10 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
-  console.log(navigate);
+  const handleClick = () => {
+    !email && navigate("/register");
+  };
+
   return (
     <div
       style={{
@@ -19,7 +22,6 @@ export default function Login() {
     >
       <form style={{ width: "30%" }}>
         <h3>Sign In</h3>
-
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -52,16 +54,15 @@ export default function Login() {
             </label>
           </div>
         </div>
-
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
       </form>
-      {/* <button onClick={handleClick} className="forgot-password text-right">
+      <button onClick={handleClick} className="forgot-password text-right">
         Register{" "}
-      </button> */}
+      </button>
     </div>
   );
 }

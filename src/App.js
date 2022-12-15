@@ -9,7 +9,6 @@ import Product from "./Components/Product";
 const App = () => {
   const [state, setState] = useState(false);
 
-  // console.log(state);
   return (
     <>
       <Header />
@@ -19,9 +18,9 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/product/:name" element={<Product />} />
       </Routes>
-      {/* <button onClick={() => setState(!state)}>
+      <button onClick={() => setState(!state)}>
         {state ? "hide homepage" : "show homepage"}
-      </button> */}
+      </button>
     </>
   );
 };
