@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import Header from "./Components/Header";
+import Product from "./Components/Product";
 
-function App() {
+const App = () => {
+  const [state, setState] = useState(false);
+
+  // console.log(state);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={state && <Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/product/:name" element={<Product />} />
+      </Routes>
+      {/* <button onClick={() => setState(!state)}>
+        {state ? "hide homepage" : "show homepage"}
+      </button> */}
+    </>
   );
-}
+};
 
 export default App;
